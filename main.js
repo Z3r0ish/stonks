@@ -8,7 +8,7 @@ var windowHeight = 40
 app.commandLine.appendSwitch('enable-transparent-visuals');
 
 let win
-var i = 0
+var i = 1
 
 function createWindow() { 
     win = new BrowserWindow({width: screenWidth, height: windowHeight, alwaysOnTop: true, y: 0, x: 0, transparent: true, frame: false}) 
