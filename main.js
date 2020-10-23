@@ -1,17 +1,18 @@
-const { app, globalShortcut, BrowserWindow} = require('electron')
+const { app, globalShortcut, BrowserWindow, webFrame  } = require('electron')
 const url = require('url') 
 const path = require('path')  
 
-var screenWidth = 1920
-var windowHeight = 40
-
 app.commandLine.appendSwitch('enable-transparent-visuals');
+
+var screenWidth = 1920
+var windowHeight = 25
+
 
 let win
 var i = 1
 
 function createWindow() { 
-    win = new BrowserWindow({width: screenWidth, height: windowHeight, alwaysOnTop: true, y: 0, x: 0, transparent: true, frame: false}) 
+    win = new BrowserWindow({width: screenWidth, height: windowHeight, minHeight : 65, alwaysOnTop: true, y: 0, x: 0, transparent: true, frame: false})
     win.loadURL(url.format ({ 
        pathname: path.join(__dirname, 'index.html'), 
        protocol: 'file:', 
@@ -19,10 +20,14 @@ function createWindow() {
     })) 
    win.setIgnoreMouseEvents(true, {forward: true})
  }  
- 
+
+
+
+
+
 app.whenReady().then(() => {
   createWindow()
-  const ret = globalShortcut.register('CommandOrControl+X', () => {
+  const ret = globalShortcut.register('Alt+H', () => {
   if (i%2) {
     win.setIgnoreMouseEvents(false)
   } else {
@@ -30,3 +35,4 @@ app.whenReady().then(() => {
   }
   i++
 })})
+
