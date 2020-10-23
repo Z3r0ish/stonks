@@ -2,11 +2,8 @@ const { app, globalShortcut, BrowserWindow, webFrame  } = require('electron')
 const url = require('url') 
 const path = require('path')  
 
-app.commandLine.appendSwitch('enable-transparent-visuals');
-
 var screenWidth = 1920
 var windowHeight = 25
-
 
 let win
 var i = 1
@@ -21,12 +18,8 @@ function createWindow() {
    win.setIgnoreMouseEvents(true, {forward: true})
  }  
 
-
-
-
-
 app.whenReady().then(() => {
-  createWindow()
+  setTimeout(createWindow, 400)
   const ret = globalShortcut.register('Alt+H', () => {
   if (i%2) {
     win.setIgnoreMouseEvents(false)
@@ -35,4 +28,3 @@ app.whenReady().then(() => {
   }
   i++
 })})
-
