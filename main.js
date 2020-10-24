@@ -1,4 +1,4 @@
-const { app, globalShortcut, BrowserWindow, webFrame  } = require('electron')
+const { app, globalShortcut, BrowserWindow } = require('electron')
 const url = require('url') 
 const path = require('path')  
 

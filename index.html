@@ -5,17 +5,17 @@
       <title>Stonks</title>
    </head>
   <style>
-    * {
+    #content {
     -webkit-app-region: drag;
+    display: none;
     }
     body {
       padding: none;
-      margin: -10px;
       overflow: hidden;
-      -webkit-app-region: drag;
+      margin: -10px;
     }
     iframe {
-      --scale: 5;
+      --scale: 2;
       zoom: calc(var(--scale) / 2);
       -webkit-transform: scale(var(--scale)) ;
       -webkit-transform-origin: 0 0;
@@ -25,13 +25,27 @@
       height: 40px;
       width: 100%;
       margin-top: calc(-10px * var(--scale));
+      margin-bottom: calc(10px * var(--scale));
       margin-left: calc(-8px * var(--scale));
       margin-right: calc(-8px * var(--scale));
       border:none;
       overflow: hidden;
    }
-    </style>
-   <body>
-<iframe src="./widget.html" scrolling="no"></iframe>   
+   </style>
+   <script>
+   function iframe(url) {
+      var iframeStart = "<iframe src=";
+      var iframeEnd = ' width="100%" height="800" style="border:none";\>\</iframe\>';
+      document.getElementById("content").innerHTML=iframeStart + "\"" + url + "\"" + iframeEnd;
+      document.getElementById("input-div").style.display = "none";
+      document.getElementById("content").style.display = "block";
+   }
+   </script>
+<body>
+   <div id="input-div" style="margin: 10px;">
+      <input id="input" type="text" value="./widget1.html" />
+      <input type='button' name='Next' value='Load Widget' onclick='iframe(document.getElementById("input").value)' />  
+   </div>
+   <div id ="content"> </div>
 </body>
 </html>
