@@ -3,7 +3,7 @@ const url = require('url')
 const path = require('path')  
 
 var screenWidth = 1920
-var windowHeight = 25
+var windowHeight = 100
 
 let win
 var i = 1

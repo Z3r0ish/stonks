@@ -10,14 +10,13 @@
     }
     body {
       padding: none;
-      margin: -8px;
-      margin-right: -5px;
+      margin: -10px;
       overflow: hidden;
       -webkit-app-region: drag;
     }
     iframe {
-      --scale: 2.0;
-      zoom: 2;
+      --scale: 5;
+      zoom: calc(var(--scale) / 2);
       -webkit-transform: scale(var(--scale)) ;
       -webkit-transform-origin: 0 0;
       -webkit-font-smoothing: subpixel-antialiased !important;
@@ -25,9 +24,9 @@
            
       height: 40px;
       width: 100%;
-      margin-top: -10px;
-      margin-bottom: -5px;
-      
+      margin-top: calc(-10px * var(--scale));
+      margin-left: calc(-8px * var(--scale));
+      margin-right: calc(-8px * var(--scale));
       border:none;
       overflow: hidden;
    }
