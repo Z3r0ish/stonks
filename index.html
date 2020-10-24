@@ -15,8 +15,24 @@
       overflow: hidden;
       -webkit-app-region: drag;
     }
+    iframe {
+      --scale: 2.0;
+      zoom: 2;
+      -webkit-transform: scale(var(--scale)) ;
+      -webkit-transform-origin: 0 0;
+      -webkit-font-smoothing: subpixel-antialiased !important;
+      -webkit-text-stroke: 0px !important;
+           
+      height: 40px;
+      width: 100%;
+      margin-top: -10px;
+      margin-bottom: -5px;
+      
+      border:none;
+      overflow: hidden;
+   }
     </style>
    <body>
-<iframe src="./widget.html" style="height:40px;width:100%;border:none;margin-top: -10px;" id=" iframe" scrolling="no"></iframe>   
+<iframe src="./widget.html" scrolling="no"></iframe>   
 </body>
 </html>
